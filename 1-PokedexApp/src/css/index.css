@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+:root {
+  --card-normal-color: rgb(226, 218, 214);
+  --card-fire-color: rgb(238, 78, 78);
+  --card-water-color: rgb(127, 161, 195);
+  --card-electric-color: rgb(255, 222, 77);
+  --card-grass-color: rgb(128, 175, 129);
+  --card-ice-color: rgb(187, 233, 255);
+  --card-fighting-color: rgb(163, 66, 60);
+  --card-poison-color: rgb(140, 48, 97);
+  --card-ground-color: rgb(222, 172, 128);
+  --card-flying-color: rgb(127, 161, 195);
+  --card-psychic-color: rgb(237, 90, 179);
+  --card-bug-color: rgb(161, 221, 112);
+  --card-rock-color: rgb(175, 143, 111);
+  --card-ghost-color: rgb(64, 31, 113);
+  --card-dragon-color: rgb(130, 77, 116);
+  --card-dark-color: rgb(84, 51, 16);
+  --card-steel-color: rgb(199, 200, 204);
+  --card-fairy-color: rgb(255, 199, 237);
+  --background-color: #fafafa;
+}
+body {
+  background-color: var(--background-color);
+  width: 100svw;
+}
+.fire__type {
+  background-color: var(--card-fire-color);
+}
+.normal__type {
+  background-color: var(--card-normal-color);
+}
+.water__type {
+  background-color: var(--card-water-color);
+}
+.electric__type {
+  background-color: var(--card-electric-color);
+}
+.grass__type {
+  background-color: var(--card-grass-color);
+}
+.ice__type {
+  background-color: var(--card-ice-color);
+}
+.fighting__type {
+  background-color: var(--card-fighting-color);
+}
+.poison__type {
+  background-color: var(--card-poison-color);
+}
+.ground__type {
+  background-color: var(--card-ground-color);
+}
+.flying__type {
+  background-color: var(--card-flying-color);
+}
+.psychic__type {
+  background-color: var(--card-psychic-color);
+}
+.bug__type {
+  background-color: var(--card-bug-color);
+}
+.rock__type {
+  background-color: var(--card-rock-color);
+}
+.ghost__type {
+  background-color: var(--card-ghost-color);
+}
+.dragon__type {
+  background-color: var(--card-dragon-color);
+}
+.dark__type {
+  background-color: var(--card-dark-color);
+}
+.steel__type {
+  background-color: var(--card-steel-color);
+}
+.fairy__type {
+  background-color: var(--card-fairy-color);
+}
+.hidden {
+  visibility: hidden;
+  transform: translateY(35px);
+  opacity: 0;
+}
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5svh;
+}
+.poke--grid {
+  width: 90svw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  margin-top: 5svh;
+}
+.poke--card {
+  width: 90%;
+  max-width: 250px;
+  height: 300px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: 45% 20% 35%;
+  margin-bottom: 50px;
+  transition: 0.5s;
+}
+.poke--card:hover {
+  transform: rotateY(15deg) rotateX(-10deg) translateY(-5px);
+  cursor: pointer;
+}
+.poke--row {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  place-items: center;
+}
+.poke--column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+.poke--image {
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: auto;
+  background-color: var(--background-color);
+}
+.poke--name {
+  margin: auto;
+}
+@media (min-width: 1100px) {
+  .poke--grid {
+    width: 70%;
+  }
+}
+@media (min-width: 1500px) {
+  .poke--grid {
+    width: 50%;
+  }
+}
+/*
+.dual__type {
+  background: linear-gradient(
+    90deg,
+    var(--card-fire-color) 50%,
+    var(--card-water-color) 50%
+  );
+}
+*/
