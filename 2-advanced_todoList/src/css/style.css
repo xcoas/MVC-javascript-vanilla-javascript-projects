@@ -1,0 +1,362 @@
+:root {
+  --font-family: "inter", "sans-serif";
+  --main-col-1: #283618;
+  --main-col-1-hover: #2d3d1b;
+  --main-col-2: #606c38;
+  --main-col-3: #fefae0;
+  --main-col-4: #9b998a;
+  --main-col-5: #353a23;
+  --main-header-height: 30svh;
+  --main-header-margin-left: 5%;
+  --todoList-margin-left: 15px;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+i {
+  font-family: "Times New Roman", Times, serif;
+}
+.hidden {
+  opacity: 0;
+  display: none;
+  pointer-events: none;
+}
+body {
+  background-color: var(--main-col-3);
+  min-width: 100svw;
+  min-height: 100svh;
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* main page */
+section {
+  min-height: 100svh;
+  min-width: 100svw;
+}
+.main--header {
+  height: var(--main-header-height);
+  background-color: var(--main-col-1);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.main--header::after {
+  content: "";
+  display: block;
+  height: var(--main-header-height);
+  width: 100svw;
+  background-color: var(--main-col-3);
+  position: absolute;
+  top: calc(var(--main-header-height) - 50px);
+  border-radius: 50px;
+  z-index: 1;
+}
+.main--month--name {
+  position: absolute;
+  right: 5%;
+  top: 2%;
+  font-size: 2.5rem;
+  color: var(--main-col-2);
+  font-weight: 400;
+}
+.main--welcome--message {
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--main-col-3);
+  margin-left: var(--main-header-margin-left);
+  margin-top: calc(var(--main-header-margin-left) - 1%);
+}
+.calendar {
+  margin: 0 auto;
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(7, 1fr);
+  place-items: center;
+}
+.not--current--day {
+  background-color: var(--main-col-2);
+  color: var(--main-col-1);
+}
+.current--day {
+  background-color: var(--main-col-3);
+  color: var(--main-col-4);
+  transform: translateY(-10px);
+}
+.calendar--box {
+  width: 55px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 180%;
+  font-weight: 400;
+}
+.main--main {
+  position: absolute;
+  width: 100%;
+  min-height: calc(100svh - var(--main-header-height));
+  z-index: 100;
+}
+.main--sort--button {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  height: 20px;
+  position: absolute;
+  right: 50px;
+  top: -30px;
+  color: var(--main-col-2);
+  font-size: 1.5rem;
+}
+.main--sort--button h3 {
+  font-weight: 500;
+}
+.todo--list {
+  position: relative;
+  width: 90%;
+  background-color: var(--main-col-2);
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  color: var(--main-col-5);
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+.open,
+.closed,
+.todo--date {
+  position: absolute;
+}
+.todo--date {
+  right: 4%;
+  top: 5%;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+.divider {
+  width: 70%;
+  height: 2px;
+  background-color: var(--main-col-5);
+  margin-top: 10px;
+  margin-left: var(--todoList-margin-left);
+}
+.small--divider {
+  width: 60%;
+  height: 2px;
+  background-color: var(--main-col-1);
+  margin-top: 10px;
+}
+.todo--list--name {
+  margin-top: 15px;
+  margin-left: var(--todoList-margin-left);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.open,
+.closed {
+  margin-top: 75px;
+  margin-left: var(--todoList-margin-left);
+  width: 100%;
+}
+.open *,
+.closed * {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.angle--rotate {
+  position: absolute;
+  right: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+.todo--list .icon {
+  position: absolute;
+  top: 85%;
+  right: 50%;
+}
+.todo--list--open--button,
+.todo--list--delete--button {
+  position: absolute;
+  right: 7%;
+}
+.todo--list--delete--button {
+  top: 55px;
+}
+.todo--task {
+  margin-top: 15px;
+}
+.new--list--button,
+.new--task--button {
+  width: 80%;
+  background-color: var(--main-col-1);
+  color: var(--main-col-2);
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.new--list--button:hover,
+.new--task--button:hover {
+  transform: translateX(-50%) translateY(-5px);
+  background-color: var(--main-col-1-hover);
+}
+.newList--Popup {
+  width: 90%;
+  height: 35svh;
+  background-color: var(--main-col-1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 1000;
+  border-radius: 5px;
+  min-height: 315px;
+}
+.newList--Popup h2 {
+  margin: 20px;
+  color: var(--main-col-2);
+  font-size: 2.3rem;
+  font-weight: 400;
+}
+.list--name--label {
+  margin-left: 20px;
+  max-height: 45%;
+  height: 45%;
+  width: 90%;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  resize: none;
+  text-indent: 10px;
+  padding-top: 10px;
+  background-color: var(--main-col-3);
+  color: var(--main-col-1);
+}
+.add--newList--btn--submit {
+  background-color: var(--main-col-2);
+  color: var(--main-col-1);
+  font-size: 1.5rem;
+  margin-left: 20px;
+  width: 90%;
+  margin-top: 20px;
+  border-radius: 5px;
+  height: 40px;
+  border: 0;
+  cursor: pointer;
+}
+.close--newList--popup {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  color: var(--main-col-2);
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+/* list */
+
+.top--block {
+  height: 200svh;
+  width: 200svw;
+  background-color: var(--main-col-1);
+  position: absolute;
+  top: -173%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+.list--page header {
+  position: relative;
+  z-index: 100;
+  color: var(--main-col-2);
+}
+.list--page .date {
+  position: absolute;
+  right: 2%;
+  top: 5%;
+  font-size: 1.5rem;
+}
+.back--button {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  font-size: 1.5rem;
+  left: 2%;
+  top: 5%;
+  cursor: pointer;
+}
+.back--button h3 {
+  font-weight: 500;
+}
+.list--page h2 {
+  margin: auto;
+  margin-top: 10svh;
+  color: var(--main-col-3);
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+.list--page .small--divider {
+  background-color: var(--main-col-2);
+  width: 28%;
+  margin: auto;
+  margin-top: 10px;
+}
+.sort--list--btn {
+  top: 15svh;
+  position: absolute;
+  display: flex;
+  font-size: 1.3rem;
+  gap: 10px;
+  margin-top: 5svh;
+  margin-left: 2svw;
+  color: var(--main-col-2);
+  cursor: pointer;
+}
+.task--list--parent {
+  margin: auto;
+  width: 90%;
+  margin-top: 15svh;
+}
+.task--list--parent > :last-child {
+  padding-bottom: 150px;
+}
+.task--name {
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+.task {
+  color: var(--main-col-2);
+  display: grid;
+  grid-template-columns: 70% 15% 15%;
+  grid-template-rows: 70% 30%;
+  max-height: 200px;
+  margin-top: 40px;
+}
+.task .small--divider {
+  width: 100%;
+}
+.task--complete--btn,
+.task--delete--btn {
+  margin: auto;
+  font-size: 2rem;
+  cursor: pointer;
+}

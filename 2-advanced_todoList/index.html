@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <script type="module" src="./src/js/controller.js"></script>
+  </head>
+  <body>
+    <div class="newList--Popup hidden">
+      <h2>Add new task list</h2>
+      <textarea
+        class="list--name--label"
+        placeholder="Enter list name here..."
+      ></textarea>
+      <input
+        type="submit"
+        value="Add new list"
+        class="add--newList--btn--submit"
+      />
+      <i class="fa-solid fa-xmark close--newList--popup"></i>
+    </div>
+    <section class="main--page hidden" data-page="1">
+      <header class="main--header">
+        <h3 class="main--month--name">August</h3>
+        <h2 class="main--welcome--message">Hello, xcoast!</h2>
+        <div class="calendar">
+          <div class="calendar--box not--current--day">1</div>
+          <div class="calendar--box current--day">2</div>
+          <div class="calendar--box not--current--day">3</div>
+          <div class="calendar--box not--current--day">1</div>
+          <div class="calendar--box not--current--day">2</div>
+          <div class="calendar--box not--current--day">3</div>
+          <div class="calendar--box not--current--day">1</div>
+        </div>
+      </header>
+      <main class="main--main">
+        <div class="main--sort--button">
+          <h3>Sort</h3>
+          <i class="fa-solid fa-arrow-up arrow--rotate"></i>
+        </div>
+
+        <div class="todo--list todo--list--closed">
+          <h2 class="todo--date">02.08.24</h2>
+          <h2 class="todo--list--name">Shooping list</h2>
+          <div class="divider"></div>
+          <div class="closed">
+            <h3 class="description">description...</h3>
+          </div>
+          <div class="open hidden">
+            <div class="todo--list--open--button">Open</div>
+            <div class="todo--list--delete--button">Delete</div>
+            <h3 class="todo--task">2 avocados</h3>
+            <div class="small--divider"></div>
+            <h3 class="todo--task">2 apples</h3>
+            <div class="small--divider"></div>
+            <h3 class="todo--task">tomato</h3>
+            <div class="small--divider"></div>
+            <h3 class="todo--task">cucumber</h3>
+          </div>
+          <div class="icon">
+            <i class="fa-solid fa-angle-down angle--rotate"></i>
+          </div>
+        </div>
+        <div class="new--list--button">Add new List</div>
+      </main>
+    </section>
+    <section class="list--page" data-page="2">
+      <header>
+        <div class="column">
+          <h2>Shopping list</h2>
+          <div class="small--divider"></div>
+        </div>
+        <div class="date">02.08.2024</div>
+        <div class="back--button">
+          <i class="fa-solid fa-arrow-left"></i>
+          <h3>Back</h3>
+        </div>
+      </header>
+      <div class="top--block"></div>
+      <main>
+        <div class="sort--list--btn">
+          <h3>Sort</h3>
+          <i class="fa-solid fa-arrow-down"></i>
+        </div>
+        <div class="task--list--parent">
+          <div class="task">
+            <h3 class="task--name">2 avocados</h2>
+            <i class="fa-solid fa-check task--complete--btn"></i>
+            <i class="fa-solid fa-xmark task--delete--btn"></i>
+            <div class="small--divider"></div>
+          </div>
+          <div class="task">
+            <h3 class="task--name">2 avocados</h2>
+            <i class="fa-solid fa-check task--complete--btn"></i>
+            <i class="fa-solid fa-xmark task--delete--btn"></i>
+            <div class="small--divider"></div>
+          </div>
+          <div class="task">
+            <h3 class="task--name">2 avocados</h2>
+            <i class="fa-solid fa-check task--complete--btn"></i>
+            <i class="fa-solid fa-xmark task--delete--btn"></i>
+            <div class="small--divider"></div>
+          </div>
+          <div class="task">
+            <h3 class="task--name">2 avocados</h2>
+            <i class="fa-solid fa-check task--complete--btn"></i>
+            <i class="fa-solid fa-xmark task--delete--btn"></i>
+            <div class="small--divider"></div>
+          </div>
+          <div class="task">
+            <h3 class="task--name">2 avocados</h2>
+            <i class="fa-solid fa-check task--complete--btn"></i>
+            <i class="fa-solid fa-xmark task--delete--btn"></i>
+            <div class="small--divider"></div>
+          </div>
+          <div class="task">
+            <h3 class="task--name">2 avocados</h2>
+            <i class="fa-solid fa-check task--complete--btn"></i>
+            <i class="fa-solid fa-xmark task--delete--btn"></i>
+            <div class="small--divider"></div>
+          </div>
+          <div class="task">
+            <h3 class="task--name">2 avocados</h2>
+            <i class="fa-solid fa-check task--complete--btn"></i>
+            <i class="fa-solid fa-xmark task--delete--btn"></i>
+            <div class="small--divider"></div>
+          </div>
+          <div class="task">
+            <h3 class="task--name">2 avocados</h2>
+            <i class="fa-solid fa-check task--complete--btn"></i>
+            <i class="fa-solid fa-xmark task--delete--btn"></i>
+            <div class="small--divider"></div>
+          </div>
+        </div>
+        <div class="new--task--button">Add new task</div>
+      </main>
+    </section>
+  </body>
+</html>
