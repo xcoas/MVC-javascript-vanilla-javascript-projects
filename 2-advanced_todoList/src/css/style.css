@@ -360,3 +360,47 @@ section {
   font-size: 2rem;
   cursor: pointer;
 }
+.newTask--Popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 90%;
+  height: 40svh;
+  background-color: var(--main-col-1);
+  border-radius: 10px;
+  color: var(--main-col-2);
+}
+.task--title {
+  font-size: 2rem;
+  margin: 10px auto;
+  font-weight: 500;
+}
+.task--edit--name--label {
+  width: 95%;
+  text-indent: 10px;
+  margin: 10px auto;
+  height: 60%;
+  resize: none;
+  padding-top: 10px;
+  font-size: 1.2rem;
+  background-color: var(--main-col-3);
+  color: var(--main-col-1);
+}
+.task--edit--btn--confirm,
+.task--edit--btn--close {
+  cursor: pointer;
+  position: absolute;
+  bottom: 5%;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.task--edit--btn--close {
+  right: 5%;
+}
+.task--edit--btn--confirm {
+  left: 5%;
+}
