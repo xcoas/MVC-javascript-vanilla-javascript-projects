@@ -21,18 +21,21 @@
     <script type="module" src="./src/js/controller.js"></script>
   </head>
   <body>
-    <div class="newList--Popup hidden">
-      <h2>Add new task list</h2>
-      <textarea
-        class="list--name--label"
-        placeholder="Enter list name here..."
-      ></textarea>
-      <input
-        type="submit"
-        value="Add new list"
-        class="add--newList--btn--submit"
-      />
-      <i class="fa-solid fa-xmark close--newList--popup"></i>
+    <div class="newlistPopup hidden">
+      <div class="outlay--newList"></div>
+      <div class="newList--Popup">
+        <h2>Add new task list</h2>
+        <textarea
+          class="list--name--label"
+          placeholder="Enter list name here..."
+        ></textarea>
+        <input
+          type="submit"
+          value="Add new list"
+          class="add--newList--btn--submit"
+        />
+        <i class="fa-solid fa-xmark close--newList--popup"></i>
+      </div>
     </div>
     <div class="newTask--Popup hidden">
       <h3 class="task--title">2 avocados</h3>
@@ -86,9 +89,7 @@
             <i class="fa-solid fa-angle-down angle--rotate"></i>
           </div>
         </div>
-      -->
-        <div class="new--list--button">Add new List</div>
-      </main>
+      --></main>
     </section>
     <section class="list--page hidden" data-page="2">
       <header>

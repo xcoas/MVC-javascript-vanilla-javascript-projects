@@ -35,6 +35,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.line__throught {
+  text-decoration: line-through;
+}
 
 /* main page */
 section {
@@ -224,7 +227,7 @@ section {
   width: 90%;
   height: 35svh;
   background-color: var(--main-col-1);
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
@@ -403,4 +406,11 @@ section {
 }
 .task--edit--btn--confirm {
   left: 5%;
+}
+.outlay--newList {
+  width: 100svw;
+  position: fixed;
+  height: 100svh;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 1000;
 }
