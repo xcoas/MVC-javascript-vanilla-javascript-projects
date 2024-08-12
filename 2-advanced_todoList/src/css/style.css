@@ -28,6 +28,7 @@ body {
   background-color: var(--main-col-3);
   min-width: 100svw;
   min-height: 100svh;
+  max-width: 100svw;
   font-family: var(--font-family);
   overflow-x: hidden;
 }
@@ -38,7 +39,15 @@ body {
 .line__throught {
   text-decoration: line-through;
 }
-
+.transformRotated {
+  transform: rotateZ(180deg);
+}
+header {
+  overflow: hidden;
+}
+.list--page {
+  overflow: hidden;
+}
 /* main page */
 section {
   min-height: 100svh;
@@ -278,14 +287,13 @@ section {
 /* list */
 
 .top--block {
-  height: 200svh;
-  width: 200svw;
+  height: 26svh;
+  width: 100svw;
   background-color: var(--main-col-1);
   position: absolute;
-  top: -173%;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 50%;
 }
 .list--page header {
   position: relative;
@@ -364,7 +372,7 @@ section {
   cursor: pointer;
 }
 .newTask--Popup {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   z-index: 1000;
@@ -407,7 +415,9 @@ section {
 .task--edit--btn--confirm {
   left: 5%;
 }
-.outlay--newList {
+.outlay--newList,
+.outlay--newTask {
+  position: absolute;
   width: 100svw;
   position: fixed;
   height: 100svh;

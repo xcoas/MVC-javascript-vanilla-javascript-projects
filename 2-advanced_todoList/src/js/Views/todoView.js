@@ -21,6 +21,7 @@ class todoView extends View {
   }
 
   _GenerateTasks(selectedList) {
+    this._parentElement.innerHTML = "";
     selectedList.tasks.forEach((task) => {
       const markup = this._generateMarkup(task);
       this._parentElement.insertAdjacentHTML("afterbegin", markup);
@@ -41,7 +42,24 @@ class todoView extends View {
           } else {
             taskSelected.completed = false;
           }
-          console.log(taskSelected);
+        }.bind(this)
+      );
+    });
+    document.querySelectorAll(".task--delete--btn").forEach((el) => {
+      el.addEventListener(
+        "click",
+        function (e) {
+          const element = e.srcElement;
+          const taskId = Number(element.closest("div").dataset.taskidhtml);
+
+          const taskIndex = selectedList.tasks.findIndex(
+            (task) => task.taskId === taskId
+          );
+
+          if (taskIndex !== -1) {
+            selectedList.tasks.splice(taskIndex, 1);
+            element.closest("div").remove();
+          }
         }.bind(this)
       );
     });
@@ -55,6 +73,67 @@ class todoView extends View {
         document.querySelector(".list--page").classList.toggle("hidden");
         this._parentElement.innerHTML = "";
         handlerFunction();
+      }.bind(this)
+    );
+  }
+
+  _toggleNewTaskPopup() {
+    document.querySelector(".newTaskPopup").classList.toggle("hidden");
+  }
+
+  _AddnewTaskPopup() {
+    [
+      document.querySelector(".new--task--button"),
+      document.querySelector(".task--edit--btn--close"),
+      document.querySelector(".outlay--newTask"),
+    ].forEach(
+      function (el) {
+        el.addEventListener("click", this._toggleNewTaskPopup);
+      }.bind(this)
+    );
+  }
+
+  _FormatDate(date) {
+    console.log(date.getMonth());
+    return `${String(date.getDate()).padStart(2, "0")}.${String(
+      date.getMonth()
+    ).padStart(2, "0")}.${date.getFullYear()}`;
+  }
+
+  _InitializeTodoDate() {
+    const currdate = new Date();
+    const formattedDate = this._FormatDate(currdate);
+    document.querySelector(".date").innerHTML = formattedDate;
+  }
+
+  _AddnewTaskConfirmValidation() {
+    document.querySelector(".task--edit--btn--confirm").addEventListener(
+      "click",
+      function (e) {
+        const NewTaskName = document.querySelector(
+          ".task--edit--name--label"
+        ).value;
+        if (!NewTaskName) return;
+
+        document.querySelector(".task--edit--name--label").value = "";
+
+        let currList = state.Lists.find(
+          (el) => el.id === state.currListSelectedId
+        );
+
+        state.Lists.find((el) => el.id === state.currListSelectedId).tasks.push(
+          {
+            taskId: currList.tasks.length,
+            taskName: NewTaskName,
+            completed: false,
+          }
+        );
+
+        this._GenerateTasks(currList);
+
+        console.log(state.Lists);
+
+        this._toggleNewTaskPopup();
       }.bind(this)
     );
   }

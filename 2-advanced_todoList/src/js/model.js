@@ -6,7 +6,7 @@ export const state = {
       description: "lista zakupów na środe",
       createDate: "08.08.2024",
       tasks: [
-        { taskId: 1, taskName: "kupić mleko", completed: false },
+        { taskId: 1, taskName: "kupić ", completed: false },
         { taskId: 2, taskName: "kupić mleko", completed: false },
       ],
     },
@@ -14,14 +14,16 @@ export const state = {
       id: 2,
       name: "zaky",
       description: "lista zakupów na środe",
-      createDate: "08.08.2024",
+      createDate: "07.08.2024",
       tasks: [
-        { taskId: 1, taskName: "kupić mleko", completed: false },
+        { taskId: 1, taskName: "kupić ", completed: false },
         { taskId: 2, taskName: "kupić mleko", completed: false },
       ],
     },
   ],
+  sorted: false,
   currListId: 0,
+  currListSelectedId: 0,
   allHTMLListsOnPage: "",
 };
 
@@ -35,5 +37,4 @@ export function addNewListToState(ListName) {
     createDate: `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`,
     tasks: [],
   });
-  console.log(state.Lists);
 }

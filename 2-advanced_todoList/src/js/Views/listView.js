@@ -25,7 +25,9 @@ class listView extends View {
                 <div class="todo--list--delete--button">Delete</div>`;
 
     data.tasks.forEach((task) => {
-      markup += `<h3 class="todo--task">${task.taskName}</h3>
+      markup += `<h3 class="todo--task ${
+        task.completed ? `line__throught` : ``
+      }">${task.taskName}</h3>
                 <div class="small--divider"></div>`;
     });
 
@@ -67,6 +69,7 @@ class listView extends View {
       .querySelector(".todo--list--open--button")
       .addEventListener("click", (e) => {
         const listId = Number(element.dataset.id);
+        state.currListSelectedId = listId;
         this._ChangePageToList();
         const selectedList = state.Lists.find((list) => list.id === listId);
         todoView._GenerateTasks(selectedList);
@@ -93,6 +96,28 @@ class listView extends View {
       .querySelector(".new--list--button")
       .addEventListener("click", function (e) {
         document.querySelector(".newlistPopup").classList.remove("hidden");
+      });
+  }
+
+  _insertSortBtn(handler) {
+    document.querySelector(".main--main").insertAdjacentHTML(
+      "beforeend",
+      `<div class="main--sort--button">
+          <h3>Sort</h3>
+          <i class="fa-solid fa-arrow-up transformRotated arrow--rotate"></i>
+        </div>`
+    );
+    document
+      .querySelector(".main--sort--button")
+      .addEventListener("click", function (e) {
+        handler(true);
+        if (state.sorted === true) {
+          document
+            .querySelector(".arrow--rotate")
+            .classList.remove("transformRotated");
+        } else {
+          document.querySelector(".arrow--rotate").classList;
+        }
       });
   }
 
@@ -129,6 +154,18 @@ class listView extends View {
         this._CloseListViewPopup();
       }.bind(this)
     );
+  }
+
+  _InitializeMonthName() {
+    //prettier-ignore
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
+    let currMonth = new Date().getMonth();
+    document.querySelector(".main--month--name").innerHTML = months[currMonth];
+    setInterval(() => {
+      currMonth = new Date().getMonth();
+      document.querySelector(".main--month--name").innerHTML =
+        months[currMonth];
+    }, 60000);
   }
 }
 
